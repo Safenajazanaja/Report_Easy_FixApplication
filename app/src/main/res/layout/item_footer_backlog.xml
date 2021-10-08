@@ -12,6 +12,7 @@
         <TextView
             android:id="@+id/tvData1"
             style="@style/Text.Title"
+            android:layout_marginEnd="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Data1" />

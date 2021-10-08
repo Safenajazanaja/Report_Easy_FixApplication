@@ -1,6 +1,6 @@
 package com.example.reporteasyfixapplication.presentation.backlog.list
 
-data class List5(
+data class ListBacklog5(
         val date: String,
-        val listhome:List<List6>
+        val listhome:List<ListBacklog6>
 )

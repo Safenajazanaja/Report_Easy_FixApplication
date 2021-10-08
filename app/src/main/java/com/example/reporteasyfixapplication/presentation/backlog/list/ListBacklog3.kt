@@ -3,7 +3,7 @@ package com.example.reporteasyfixapplication.presentation.backlog.list
 
 
 
-data class List3(
+data class ListBacklog3(
         val district_name: String,
-        val listdistrict_name:List<List4>
+        val listdistrict_name:List<ListBacklog4>
 )

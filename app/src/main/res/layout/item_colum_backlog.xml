@@ -37,13 +37,7 @@
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
         android:text="ตำบล" />
-    <TextView
-        style="@style/Text.Title"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:text="ประเภทงาน" />
+
 
     <TextView
         style="@style/Text.Title"
@@ -52,6 +46,13 @@
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
         android:text="วันที่เริ่มงาน" />
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="ประเภทงาน" />
 
     <TextView
         style="@style/Text.Title"

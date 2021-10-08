@@ -17,5 +17,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+        b2.setOnClickListener {
+            val intent= Intent(baseContext, BacklogActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

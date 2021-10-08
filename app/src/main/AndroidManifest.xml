@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.reporteasyfixapplication">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReportEasyFixApplication">
-        <activity android:name=".presentation.backlog.BacklogActivity"></activity>
-        <activity android:name=".presentation.backlog.MainActivity"></activity>
+        <activity android:name=".presentation.materialsreport.MaterialstActivity"></activity>
+        <activity android:name=".presentation.backlog.BacklogActivity" />
         <activity
             android:name=".presentation.login.LoginActivity"
             android:screenOrientation="landscape">

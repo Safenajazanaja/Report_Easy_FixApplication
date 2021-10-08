@@ -16,7 +16,7 @@
         android:id="@+id/b2"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="รายงานยอดสต๊อคสินค้า"/>
+        android:text="รายงานยอดวัสดุก่อสร้าง"/>
     <Button
         android:id="@+id/b3"
         android:layout_width="500dp"

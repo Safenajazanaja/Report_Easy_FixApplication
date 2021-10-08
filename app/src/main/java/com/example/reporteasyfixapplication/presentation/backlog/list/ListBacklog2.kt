@@ -1,7 +1,7 @@
 package com.example.reporteasyfixapplication.presentation.backlog.list
 
 
-data class List2(
+data class ListBacklog2(
         val amphur_name: String,
-        val listamphur_name: List<List3>
+        val listdistrict_name: List<ListBacklog3>
 )
