@@ -13,12 +13,12 @@ class List1Adapter: SimpleRecyclerView<List1>() {
     override fun View.onBindViewHolder(currentData: List1, beforeData: List1?) {
         tvData3.text=currentData.province
         tvData2.text="รวม "+currentData.provincesum.toString()+" งาน"
-        val adt= List2Adapter()
-        recyclerView1.apply {
-            layoutManager=LinearLayoutManager(context)
-            adapter=adt
-        }
-        adt.submitList(currentData.listamphur_name)
+//        val adt= List2Adapter()
+//        recyclerView1.apply {
+//            layoutManager=LinearLayoutManager(context)
+//            adapter=adt
+//        }
+//        adt.submitList(currentData.listamphur_name)
 //
 //        recyclerView.submitList(List2Adapter(),currentData.list2)
     }

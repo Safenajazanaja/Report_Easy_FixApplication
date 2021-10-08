@@ -40,8 +40,8 @@ class BacklogActivity : AppCompatActivity() {
 
 
         viewModel.report.observe(this,{
-            mfoodAdapter.submitData(it.component1())
-            mList1.submitList(it.component1().list1)
+            mfoodAdapter.submitData(it)
+            mList1.submitList(it.list1)
         })
         viewModel.report(
                 request = ReportbacklogRequest(
