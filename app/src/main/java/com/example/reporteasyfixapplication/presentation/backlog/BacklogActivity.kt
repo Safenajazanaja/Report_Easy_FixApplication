@@ -1,12 +1,9 @@
 package com.example.reporteasyfixapplication.presentation.backlog
 
 import android.app.DatePickerDialog
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +13,6 @@ import com.example.reporteasyfixapplication.presentation.backlog.adater.ColumBac
 import com.example.reporteasyfixapplication.presentation.backlog.adater.FooderBacklogAdapter
 import com.example.reporteasyfixapplication.presentation.backlog.adater.ListBacklog1Adapter
 import kotlinx.android.synthetic.main.activity_backlog.*
-import org.joda.time.DateTime
 import java.util.*
 
 class BacklogActivity : AppCompatActivity() {
@@ -40,10 +36,10 @@ class BacklogActivity : AppCompatActivity() {
         }
 
 
-        mColumAdapter.submitData(Unit)
         viewModel.report.observe(this,{
+            mColumAdapter.submitData(Unit)
             mfoodAdapter.submitData(it)
-            mList1.submitList(it.listprovince)
+            mList1.submitList(it.listdate)
         })
 
 

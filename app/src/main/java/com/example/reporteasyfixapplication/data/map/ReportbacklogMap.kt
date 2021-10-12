@@ -1,6 +1,7 @@
 package com.example.reporteasyfixapplication.data.map
 
 import com.example.reporteasyfixapplication.data.database.*
+import com.example.reporteasyfixapplication.data.models.ReportMatModel
 import com.example.reporteasyfixapplication.data.models.ReportbacklogModel
 import org.jetbrains.exposed.sql.ResultRow
 
@@ -14,4 +15,5 @@ object ReportbacklogMap {
             home = row[Orderl.abode],
             repairlist = row[Orderl.repair_list],
     )
+
 }

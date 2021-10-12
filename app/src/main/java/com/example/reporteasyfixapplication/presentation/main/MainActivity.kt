@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.reporteasyfixapplication.R
 import com.example.reporteasyfixapplication.presentation.backlog.BacklogActivity
+import com.example.reporteasyfixapplication.presentation.materialsreport.MaterialstActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         b2.setOnClickListener {
-            val intent= Intent(baseContext, BacklogActivity::class.java)
+            val intent= Intent(baseContext, MaterialstActivity::class.java)
             startActivity(intent)
         }
     }

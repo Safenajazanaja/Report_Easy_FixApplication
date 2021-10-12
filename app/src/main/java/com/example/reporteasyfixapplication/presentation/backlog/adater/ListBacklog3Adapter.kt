@@ -12,12 +12,12 @@ class ListBacklog3Adapter: SimpleRecyclerView<ListBacklog3>() {
 
 
     override fun View.onBindViewHolder(currentData: ListBacklog3, beforeData: ListBacklog3?) {
-        tvData5.text = currentData.district_name
-        val adt= ListBacklog4Adapter()
-        recyclerView3.apply {
-            layoutManager= LinearLayoutManager(context)
-            adapter=adt
-        }
-        adt.submitList(currentData.listdistrict_name)
+//        tvData5.text = currentData.district_name
+//        val adt= ListBacklog4Adapter()
+//        recyclerView3.apply {
+//            layoutManager= LinearLayoutManager(context)
+//            adapter=adt
+//        }
+//        adt.submitList(currentData.listdistrict_name)
     }
 }

@@ -14,46 +14,30 @@
 
 
 
-
     <TextView
         style="@style/Text.Title"
-        android:layout_width="100dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
-        android:text="วันที่" />
-    <TextView
-        style="@style/Text.Title"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:text="จังหวัด" />
-    <TextView
-        style="@style/Text.Title"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:text="ประเภทงาน" />
+        android:text="ชื่อช่าง" />
 
     <TextView
         style="@style/Text.Title"
-        android:layout_width="100dp"
+        android:layout_width="503dp"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
-        android:text="บ้านเลขที่" />
-
-
+        android:text="ชื่อวัสดุ" />
 
     <TextView
         style="@style/Text.Title"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
-        android:text="งานที่ทำ" />
+        android:text="หน่วย" />
+
 
 
 

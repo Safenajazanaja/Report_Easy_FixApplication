@@ -6,7 +6,9 @@ import android.util.Log
 
 import com.example.engineerapplication.data.response.LoginResponse
 import com.example.reporteasyfixapplication.data.database.*
+import com.example.reporteasyfixapplication.data.map.ReportMatMap
 import com.example.reporteasyfixapplication.data.map.ReportbacklogMap
+import com.example.reporteasyfixapplication.data.models.ReportMatModel
 import com.example.reporteasyfixapplication.data.models.ReportbacklogModel
 import com.example.reporteasyfixapplication.data.request.LoginRequest
 import com.example.reporteasyfixapplication.data.request.ReportbacklogRequest
@@ -68,6 +70,25 @@ object DataSource {
                     .andWhere { Orderl.amphur_id eq Amphur.amphur_id }
                     .andWhere { Orderl.type_job eq Type_job.type_job_id }
                     .map { ReportbacklogMap.toReportbacklog(it) }
+        }
+
+    }
+
+    fun reportmat(request: ReportbacklogRequest):List<ReportMatModel>{
+        return  transaction {
+            addLogger(StdOutSqlLogger)
+            (Technician innerJoin Orderl innerJoin Orderl_detail innerJoin Material)
+                .slice(
+                    Technician.fullname,
+                    Material.material_name,
+                    Material.price_material,
+                    Orderl_detail.qty
+                )
+                .select { Orderl.dateLong.between(request.star,request.end) }
+                .andWhere { Orderl.order_id eq Orderl_detail.orderl_id }
+                .andWhere { Orderl.id_technician eq Technician.technician_id }
+                .andWhere { Orderl_detail.material_id eq Material.material_id }
+                .map { ReportMatMap.toReportMater(it) }
         }
 
     }

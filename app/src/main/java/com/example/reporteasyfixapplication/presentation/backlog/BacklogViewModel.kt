@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.reporteasyfixapplication.data.datasource.DataSource
+import com.example.reporteasyfixapplication.data.models.ReportbacklogModel
 import com.example.reporteasyfixapplication.data.request.ReportbacklogRequest
 import com.example.reporteasyfixapplication.presentation.backlog.list.*
 import com.google.gson.Gson
@@ -20,50 +21,27 @@ class BacklogViewModel : ViewModel() {
         val sdf = SimpleDateFormat("dd/MM/yyyy")
         val report2 =
             FooderBacklog(
-                    sum = result.count(),
-                    listprovince = result //.filter { it.province.toString() == db.province.toString() }
-                            .map { db2 ->
-                                ListBacklog1(
-                                        province = db2.province.toString(),
-                                        provincesum = result.filter { db2.province.toString() == it.province.toString()}.count(),
-                                        listamphur_name = result.filter { db2.amphur_name.toString() == it.amphur_name.toString() }
-                                                .map { db3 ->
-                                                    ListBacklog2(
-                                                            amphur_name = db3.amphur_name.toString(),
-                                                            listdistrict_name = result.filter { it.district_name.toString() == db3.district_name.toString() }
-                                                                    .map { db4 ->
-                                                                        ListBacklog3(
-                                                                                district_name = db4.district_name.toString(),
-                                                                                listdistrict_name = result.filter { it.type.toString() == db4.type.toString() }
-                                                                                        .map { db5 ->
-                                                                                            ListBacklog4(
-                                                                                                    typejob = sdf.format(db5.date).toString(),
-                                                                                                    listdate = result.filter { sdf.format(it.date) == sdf.format(db5.date) }
-                                                                                                            .map { db6 ->
-                                                                                                                ListBacklog5(
-                                                                                                                        date = db6.type.toString(),
-                                                                                                                        listhome = result.filter { it.home.toString() == db6.home.toString() }
-                                                                                                                                .map {
-                                                                                                                                    ListBacklog6(
-                                                                                                                                            home = it.home.toString(),
-                                                                                                                                            repairlist = it.repairlist.toString()
-                                                                                                                                    )
-                                                                                                                                }
-
-                                                                                                                )
-                                                                                                            }
-                                                                                            )
-                                                                                        }.distinctBy { it.typejob }
-                                                                        )
-                                                                    }.distinctBy { it.district_name }
-                                                    )
-                                                }.distinctBy { it.amphur_name}
-                                )
-                            }.distinctBy { it.province }
+                sum = result.count(),
+                listdate = result.map { db2 ->
+                        ListBacklog1(
+                            date = sdf.format(db2.date).toString(),
+                            datesum = result.filter { sdf.format(db2.date).toString() == sdf.format(it.date).toString()}.count(),
+                            listprovince = result.filter { sdf.format(db2.date) == sdf.format(it.date) }
+                                .map { db3 ->
+                                    ListBacklog2(
+                                        province = db3.province.toString(),
+                                        type = db3.type.toString(),
+                                        home = db3.home.toString(),
+                                        repairlist = db3.repairlist.toString()
+                                    )
+                                }
+                        )
+                    }.distinctBy { it.date }
             )
         Log.d(TAG, "repair: ${Gson().toJson(report2)}")
-        _report.value=report2
+        _report.value = report2
     }
+
     companion object {
         private const val TAG = "Report"
     }
