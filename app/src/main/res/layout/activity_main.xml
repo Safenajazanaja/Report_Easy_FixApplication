@@ -21,7 +21,7 @@
         android:id="@+id/b3"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="3"/>
+        android:text="รายงาน งานที่ดำเนินการเสร็จสิ้น"/>
     <Button
         android:id="@+id/b4"
         android:layout_width="500dp"

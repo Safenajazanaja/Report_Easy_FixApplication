@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.reporteasyfixapplication.R
 import com.example.reporteasyfixapplication.presentation.backlog.BacklogActivity
+import com.example.reporteasyfixapplication.presentation.completejob.CompleteActivity
 import com.example.reporteasyfixapplication.presentation.materialsreport.MaterialstActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         }
         b2.setOnClickListener {
             val intent= Intent(baseContext, MaterialstActivity::class.java)
+            startActivity(intent)
+        }
+        b3.setOnClickListener {
+            val intent=Intent(baseContext,CompleteActivity::class.java)
             startActivity(intent)
         }
     }
