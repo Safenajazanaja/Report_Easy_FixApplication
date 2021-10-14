@@ -9,6 +9,6 @@ import kotlinx.android.synthetic.main.item_fooder_materialst.view.*
 class FooderMatAdapter:SingleRecyclerView<FooderMat>() {
     override fun getLayout(): Int = R.layout.item_fooder_materialst
     override fun View.onBindViewHolder(data: FooderMat?) {
-        tvData1mat.text="รวมทั้งสิน${data?.sum}รายการ"
+        tvData1mat.text="รวมชนิดวัสดุก่อสร้าง${data?.sum}ชนิด"
     }
 }

@@ -14,7 +14,7 @@ class ListMat1Adapter: SimpleRecyclerView<ListMat1>() {
 
     override fun View.onBindViewHolder(currentData: ListMat1, beforeData: ListMat1?) {
         tvData2mat.text=currentData.name_tec
-        tvData3mat.text="รวม${currentData.summat.toString()}รายการ"
+        tvData3mat.text="รวม${currentData.summat.toString()}ชนิด"
         val adt= ListMat2Adapter()
         recyclerView1mat.apply {
             layoutManager=LinearLayoutManager(context)

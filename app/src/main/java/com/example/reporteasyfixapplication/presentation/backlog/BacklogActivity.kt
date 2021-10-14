@@ -59,7 +59,7 @@ class BacklogActivity : AppCompatActivity() {
 //                                "$year/${month.plus(1)}/$dayOfMonth",
 //                                Toast.LENGTH_SHORT
 //                        ).show()
-                        bt_dete_start.setText("$year/${month.plus(1)}/$dayOfMonth")
+                        bt_dete_start.setText("$dayOfMonth/${month.plus(1)}/$year")
                         bt_dete_end.visibility = View.VISIBLE
 
                         totext.visibility = View.VISIBLE
@@ -102,7 +102,7 @@ class BacklogActivity : AppCompatActivity() {
 //                                "$year/${month.plus(1)}/$dayOfMonth",
 //                                Toast.LENGTH_SHORT
 //                        ).show()
-                        bt_dete_end.setText("$year/${month.plus(1)}/$dayOfMonth")
+                        bt_dete_end.setText("$dayOfMonth/${month.plus(1)}/$year")
                         bt_okhis.visibility = View.VISIBLE
                         bt_okhis.isEnabled=true
                         totext.visibility=View.VISIBLE

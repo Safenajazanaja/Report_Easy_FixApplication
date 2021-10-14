@@ -8,21 +8,36 @@
         android:id="@+id/view0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvData2mat"
-            style="@style/Text"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="Data3" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView1mat"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvData2mat"
+                style="@style/Text"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="Data3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView1mat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="896dp"
+            android:layout_height="2dp"
+            android:layout_gravity="right"
+            android:layout_margin="4dp"
+            android:background="@color/black" />
+
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/view3"

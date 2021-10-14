@@ -25,7 +25,7 @@ class MaterialstViewModel : ViewModel() {
                 listnametec = result.map { db ->
                     ListMat1(
                         name_tec = db.nametec,
-                        summat = result.filter { db.nametec == it.nametec }.filter { it.mater_name == db.mater_name }.count(),
+                        summat = result.filter { db.nametec == it.nametec }.distinctBy { it.mater_name }.count(),
                         listMat2 = result.filter { db.nametec ==it.nametec }.map {db2 ->
                             ListMat2(
                                 mater_name = db2.mater_name,
@@ -36,7 +36,7 @@ class MaterialstViewModel : ViewModel() {
                 }.distinctBy { it.name_tec }
             )
         _report.value=report
-        Log.d(TAG, "repair3: ${Gson().toJson(report)}")
+        Log.d(TAG, "repair3: ${Gson().toJson(result)}")
     }
 
 
