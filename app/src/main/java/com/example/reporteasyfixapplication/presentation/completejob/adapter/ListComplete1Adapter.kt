@@ -15,7 +15,7 @@ class ListComplete1Adapter: SimpleRecyclerView<ListCom1>() {
 
     override fun View.onBindViewHolder(currentData: ListCom1, beforeData: ListCom1?) {
         tvData3com.text=currentData.date
-        tvData2com.text=currentData.datesum.toString()
+        tvData2com.text="รวม${currentData.datesum.toString()}งาน"
         val adt=ListComplete2Adapter()
         recyclerView1com.apply {
             layoutManager=LinearLayoutManager(context)
