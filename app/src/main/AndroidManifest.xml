@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReportEasyFixApplication">
-        <activity android:name=".presentation.completejob.CompleteActivity"></activity>
+        <activity android:name=".presentation.summarize.SumActivity"></activity>
+        <activity android:name=".presentation.profit.ProfitActivity" />
+        <activity android:name=".presentation.completejob.CompleteActivity" />
         <activity android:name=".presentation.materialsreport.MaterialstActivity" />
         <activity android:name=".presentation.backlog.BacklogActivity" />
         <activity

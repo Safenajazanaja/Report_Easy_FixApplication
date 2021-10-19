@@ -7,6 +7,7 @@ import com.example.reporteasyfixapplication.R
 import com.example.reporteasyfixapplication.presentation.backlog.BacklogActivity
 import com.example.reporteasyfixapplication.presentation.completejob.CompleteActivity
 import com.example.reporteasyfixapplication.presentation.materialsreport.MaterialstActivity
+import com.example.reporteasyfixapplication.presentation.profit.ProfitActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         }
         b3.setOnClickListener {
             val intent=Intent(baseContext,CompleteActivity::class.java)
+            startActivity(intent)
+        }
+
+        b4.setOnClickListener {
+            val intent=Intent(baseContext,ProfitActivity::class.java)
             startActivity(intent)
         }
     }

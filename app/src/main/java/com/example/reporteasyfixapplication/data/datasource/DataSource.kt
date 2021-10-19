@@ -1,16 +1,15 @@
 package com.example.reporteasyfixapplication.data.datasource
 
 
-import android.util.Log
-
-
 import com.example.engineerapplication.data.response.LoginResponse
 import com.example.reporteasyfixapplication.data.database.*
 import com.example.reporteasyfixapplication.data.map.ReportComMap
 import com.example.reporteasyfixapplication.data.map.ReportMatMap
+import com.example.reporteasyfixapplication.data.map.ReportProfitMap
 import com.example.reporteasyfixapplication.data.map.ReportbacklogMap
 import com.example.reporteasyfixapplication.data.models.ReportComModel
 import com.example.reporteasyfixapplication.data.models.ReportMatModel
+import com.example.reporteasyfixapplication.data.models.ReportProfitModel
 import com.example.reporteasyfixapplication.data.models.ReportbacklogModel
 import com.example.reporteasyfixapplication.data.request.LoginRequest
 import com.example.reporteasyfixapplication.data.request.ReportbacklogRequest
@@ -112,6 +111,21 @@ object DataSource {
                 .map { ReportComMap.toReportCom(it) }
         }
 
+    }
+
+    fun reportpofit(request: ReportbacklogRequest):List<ReportProfitModel>{
+        return transaction {
+            addLogger(StdOutSqlLogger)
+            (Orderl innerJoin Technician)
+                .slice(
+                    Technician.fullname,
+                    Orderl.price
+                )
+                .select { Orderl.dateLong.between(request.star,request.end) }
+                .andWhere { Orderl.id_technician eq Technician.technician_id }
+                .andWhere { Orderl.price neq 0 }
+                .map { ReportProfitMap.toReportProfit(it) }
+        }
     }
 
 }
