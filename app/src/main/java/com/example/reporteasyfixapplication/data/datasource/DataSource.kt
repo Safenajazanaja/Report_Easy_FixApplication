@@ -3,14 +3,8 @@ package com.example.reporteasyfixapplication.data.datasource
 
 import com.example.engineerapplication.data.response.LoginResponse
 import com.example.reporteasyfixapplication.data.database.*
-import com.example.reporteasyfixapplication.data.map.ReportComMap
-import com.example.reporteasyfixapplication.data.map.ReportMatMap
-import com.example.reporteasyfixapplication.data.map.ReportProfitMap
-import com.example.reporteasyfixapplication.data.map.ReportbacklogMap
-import com.example.reporteasyfixapplication.data.models.ReportComModel
-import com.example.reporteasyfixapplication.data.models.ReportMatModel
-import com.example.reporteasyfixapplication.data.models.ReportProfitModel
-import com.example.reporteasyfixapplication.data.models.ReportbacklogModel
+import com.example.reporteasyfixapplication.data.map.*
+import com.example.reporteasyfixapplication.data.models.*
 import com.example.reporteasyfixapplication.data.request.LoginRequest
 import com.example.reporteasyfixapplication.data.request.ReportbacklogRequest
 import org.jetbrains.exposed.sql.*
@@ -52,50 +46,50 @@ object DataSource {
         return response
     }
 
-    fun reportbacklog(request: ReportbacklogRequest):List<ReportbacklogModel>{
-        return  transaction {
+    fun reportbacklog(request: ReportbacklogRequest): List<ReportbacklogModel> {
+        return transaction {
             addLogger(StdOutSqlLogger)
-            (Orderl innerJoin Province innerJoin District innerJoin Amphur innerJoin  Type_job)
-                    .slice(
-                            Province.province_name,
-                            Amphur.amphur_name,
-                            District.district_name,
-                            Type_job.namejob,
-                            Orderl.dateLong,
-                            Orderl.abode,
-                            Orderl.repair_list
-                    )
-                    .select { Orderl.dateLong.between(request.star,request.end) }
-                    .andWhere { Orderl.province_id eq  Province.province_id }
-                    .andWhere { Orderl.district_id eq District.district_id }
-                    .andWhere { Orderl.amphur_id eq Amphur.amphur_id }
-                    .andWhere { Orderl.type_job eq Type_job.type_job_id }
-                    .map { ReportbacklogMap.toReportbacklog(it) }
+            (Orderl innerJoin Province innerJoin District innerJoin Amphur innerJoin Type_job)
+                .slice(
+                    Province.province_name,
+                    Amphur.amphur_name,
+                    District.district_name,
+                    Type_job.namejob,
+                    Orderl.dateLong,
+                    Orderl.abode,
+                    Orderl.repair_list
+                )
+                .select { Orderl.dateLong.between(request.star, request.end) }
+                .andWhere { Orderl.province_id eq Province.province_id }
+                .andWhere { Orderl.district_id eq District.district_id }
+                .andWhere { Orderl.amphur_id eq Amphur.amphur_id }
+                .andWhere { Orderl.type_job eq Type_job.type_job_id }
+                .andWhere { Orderl.date_end.isNull() }
+                .map { ReportbacklogMap.toReportbacklog(it) }
         }
 
     }
 
-    fun reportmat(request: ReportbacklogRequest):List<ReportMatModel>{
-        return  transaction {
+    fun reportmat(request: ReportbacklogRequest): List<ReportMatModel> {
+        return transaction {
             addLogger(StdOutSqlLogger)
-            (Technician innerJoin Orderl innerJoin Orderl_detail innerJoin Material)
+            (Orderl innerJoin Orderl_detail innerJoin Material)
                 .slice(
-                    Technician.fullname,
+                    Orderl.dateLong,
                     Material.material_name,
                     Material.price_material,
                     Orderl_detail.qty
                 )
-                .select { Orderl.dateLong.between(request.star,request.end) }
+                .select { Orderl.dateLong.between(request.star, request.end) }
                 .andWhere { Orderl.order_id eq Orderl_detail.orderl_id }
-                .andWhere { Orderl.id_technician eq Technician.technician_id }
                 .andWhere { Orderl_detail.material_id eq Material.material_id }
                 .map { ReportMatMap.toReportMater(it) }
         }
 
     }
 
-    fun reportcom(request: ReportbacklogRequest):List<ReportComModel>{
-        return  transaction {
+    fun reportcom(request: ReportbacklogRequest): List<ReportComModel> {
+        return transaction {
             addLogger(StdOutSqlLogger)
             (Orderl innerJoin Type_job innerJoin Technician)
                 .slice(
@@ -104,7 +98,7 @@ object DataSource {
                     Type_job.namejob,
                     Orderl.date_end
                 )
-                .select { Orderl.dateLong.between(request.star,request.end) }
+                .select { Orderl.dateLong.between(request.star, request.end) }
                 .andWhere { Orderl.id_technician eq Technician.technician_id }
                 .andWhere { Orderl.type_job eq Type_job.type_job_id }
                 .andWhere { Orderl.date_end.isNotNull() }
@@ -113,7 +107,7 @@ object DataSource {
 
     }
 
-    fun reportpofit(request: ReportbacklogRequest):List<ReportProfitModel>{
+    fun reportpofit(request: ReportbacklogRequest): List<ReportProfitModel> {
         return transaction {
             addLogger(StdOutSqlLogger)
             (Orderl innerJoin Technician)
@@ -121,10 +115,29 @@ object DataSource {
                     Technician.fullname,
                     Orderl.price
                 )
-                .select { Orderl.dateLong.between(request.star,request.end) }
+                .select { Orderl.dateLong.between(request.star, request.end) }
                 .andWhere { Orderl.id_technician eq Technician.technician_id }
                 .andWhere { Orderl.price neq 0 }
                 .map { ReportProfitMap.toReportProfit(it) }
+        }
+    }
+
+
+    fun reportsum(request: ReportbacklogRequest): List<ReportSumModel>
+    {
+        return transaction {
+            addLogger(StdOutSqlLogger)
+            (Orderl innerJoin Pay)
+                .slice(
+                    Orderl.dateLong,
+                    Orderl.pay_type,
+                    Pay.pay_type,
+                )
+                .select { Orderl.dateLong.between(request.star, request.end) }
+                .andWhere { Orderl.pay_type eq Pay.pay_id }
+                .andWhere { Orderl.status neq 5 }
+                .map { ReportSum.toReportSum(it) }
+
         }
     }
 

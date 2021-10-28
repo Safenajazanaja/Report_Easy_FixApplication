@@ -4,5 +4,5 @@ import com.example.reporteasyfixapplication.presentation.backlog.list.ListBacklo
 
 data class FooderMat(
     val sum: Int,
-    val listnametec:List<ListMat1>
+    val listnamemat:List<ListMat1>
 )

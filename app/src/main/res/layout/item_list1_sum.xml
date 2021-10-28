@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/view0"
@@ -11,45 +12,52 @@
         android:orientation="vertical">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvData2profit"
+                android:id="@+id/tvData3sum"
                 style="@style/Text"
-                android:layout_width="550dp"
+                android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Data1" />
+                android:text="Data3" />
 
             <TextView
-                android:id="@+id/tvData3profit"
+                android:id="@+id/tvData4sum"
                 style="@style/Text"
-                android:layout_width="470dp"
+                android:layout_width="450dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Data2" />
+                android:text="Data4" />
 
             <TextView
-                android:id="@+id/tvData4profit"
+                android:id="@+id/tvData5sum"
                 style="@style/Text"
-                android:layout_width="370dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Data2" />
+                android:text="Data4" />
+
+            <TextView
+                android:id="@+id/tvData6sum"
+                style="@style/Text"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="Data4" />
+
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="6dp"
             android:layout_gravity="right"
             android:layout_margin="4dp"
             android:background="@color/black" />
 
-
-
     </LinearLayout>
-
 
 </RelativeLayout>

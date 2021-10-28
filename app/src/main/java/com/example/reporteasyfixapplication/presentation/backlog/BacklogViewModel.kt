@@ -36,7 +36,7 @@ class BacklogViewModel : ViewModel() {
                                     )
                                 }
                         )
-                    }.distinctBy { it.date }
+                    }.distinctBy { it.date }.sortedBy { it.date }
             )
         Log.d(TAG, "repair: ${Gson().toJson(report2)}")
         _report.value = report2

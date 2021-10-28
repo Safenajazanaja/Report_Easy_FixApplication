@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="รายงาน การสร้างกำไรของช่างแต่ละคน"
+            android:text="รายงาน ค่าแรงทั้งหมดของช่าง"
             android:textColor="#0E0E0E"
             android:textSize="30sp" />
     </androidx.cardview.widget.CardView>

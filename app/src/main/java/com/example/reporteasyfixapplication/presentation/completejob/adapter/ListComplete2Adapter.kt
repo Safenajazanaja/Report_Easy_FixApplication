@@ -11,7 +11,11 @@ class ListComplete2Adapter:SimpleRecyclerView<ListCom2>() {
     override fun getLayout(): Int = R.layout.item_list2_complete
 
     override fun View.onBindViewHolder(currentData: ListCom2, beforeData: ListCom2?) {
-        tvData4com.text=currentData.nametec
+            if (currentData.nametec==beforeData?.nametec){
+                tvData4com.text=" "
+            }else{
+                tvData4com.text=currentData.nametec
+            }
         tvData5com.text=currentData.type
         tvData6com.text=currentData.dateend
     }

@@ -11,12 +11,12 @@
         android:id="@+id/b1"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="รายงาน ยอดค้าง"/>
+        android:text="รายงาน งานที่ยังไม่แล้วเสร็จ"/>
     <Button
         android:id="@+id/b2"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="รายงาน ยอดวัสดุก่อสร้าง"/>
+        android:text="รายงาน ยอดการใช้วัสดุ"/>
     <Button
         android:id="@+id/b3"
         android:layout_width="500dp"
@@ -26,11 +26,11 @@
         android:id="@+id/b4"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="รายงาน การสร้างกำไรของช่างแต่ละคน"/>
+        android:text="รายงาน ค่าแรงของช่างทั้งหมด"/>
     <Button
         android:id="@+id/b5"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:text="5"/>
+        android:text="รายงาน การชำระเงินของลูกค้า"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

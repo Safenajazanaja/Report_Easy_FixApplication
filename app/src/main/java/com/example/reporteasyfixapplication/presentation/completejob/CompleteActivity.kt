@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.reporteasyfixapplication.R
+import com.example.reporteasyfixapplication.base.BaseActivity
 import com.example.reporteasyfixapplication.data.request.ReportbacklogRequest
 import com.example.reporteasyfixapplication.presentation.completejob.adapter.ColumCompleteAdapter
 import com.example.reporteasyfixapplication.presentation.completejob.adapter.FooderCompleteAdapter
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_complete.*
 import kotlinx.android.synthetic.main.activity_materialst.*
 import java.util.*
 
-class CompleteActivity : AppCompatActivity() {
+class CompleteActivity : BaseActivity() {
     private var mCalendarstar: Calendar? = null
     private var mCalendarend: Calendar? = null
     var dateinmax: Long? = null
