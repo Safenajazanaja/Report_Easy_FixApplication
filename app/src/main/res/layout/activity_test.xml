@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.materialsreport.MaterialstActivity"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:contentPadding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="รายงาน ยอดการใช้วัสดุเป็นรายเดือน"
+            android:textColor="#0E0E0E"
+            android:textSize="30sp" />
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="กรุณาเลือกวันที่ต้องการ"
+        android:textSize="25sp"
+        android:textColor="#0E0E0E" />
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_dete_starttest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="วันที่"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/totexttest"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ถึง"
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:textColor="#0E0E0E" />
+
+        <Button
+            android:id="@+id/bt_dete_endtest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="วันที่"
+            android:visibility="gone"
+            android:textSize="20dp"/>
+
+        <Button
+            android:layout_marginStart="20dp"
+            android:id="@+id/bt_oktest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textSize="20dp"
+            android:visibility="gone"
+            android:text="ค้นหา" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerViewtest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+</LinearLayout>

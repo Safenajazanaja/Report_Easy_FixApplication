@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="9"
+    android:rowCount="10">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_columnSpan="9"
+        android:layout_margin="4dp"
+        android:background="@color/black" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="วันที่สั่ง" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="รหัสลูกค้า" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="ชื่อลูกค้า" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="เลขที่สั่ง" />
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="วันที่กำหนดเสร็จ" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="สถานะ" />
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="วันที่เสร็จ" />
+
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="วัสดุ" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_columnSpan="9"
+        android:layout_margin="4dp"
+        android:background="@color/black" />
+
+</GridLayout>

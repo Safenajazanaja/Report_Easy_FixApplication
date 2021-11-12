@@ -32,5 +32,17 @@
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:text="รายงาน การชำระเงินของลูกค้า"/>
+<!--    <Button-->
+<!--        android:id="@+id/b6"-->
+<!--        android:layout_width="500dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="รายงาน ข้อมูลการสั่งใช้บริการ"/>-->
+
+
+    <Button
+        android:id="@+id/b7"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:text="test"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -141,5 +141,32 @@ object DataSource {
         }
     }
 
+    fun reportcall(request: ReportbacklogRequest): List<ReportCallModel>
+    {
+        return transaction {
+            addLogger(StdOutSqlLogger)
+            (Orderl innerJoin Users innerJoin Status innerJoin Orderl_detail innerJoin Material)
+                .slice(
+                    Orderl.dateLong,
+                    Orderl.user_id,
+                    Users.fullname,
+                    Orderl.order_id,
+                    Orderl.period,
+                    Orderl.status,
+                    Status.status_name,
+                    Orderl.date_end,
+                    Material.material_name,
+                )
+                .select { Orderl.dateLong.between(request.star, request.end) }
+                .andWhere { Orderl.status greaterEq 3  }
+                .andWhere { Orderl.user_id eq Users.user_id }
+                .andWhere { Orderl.status eq Status.status_id }
+                .andWhere { Orderl.order_id eq Orderl_detail.orderl_id }
+                .andWhere { Orderl_detail.material_id eq Material.material_id }
+                .map { ReportCallMap.toReportCall(it) }
+
+        }
+    }
+
 }
 
